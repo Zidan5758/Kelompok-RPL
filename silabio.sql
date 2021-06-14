@@ -2143,10 +2143,17 @@ CREATE TABLE `peminjaman` (
 -- Triggers `peminjaman`
 --
 DELIMITER $$
+<<<<<<< HEAD
 CREATE TRIGGER `update_peminjaman` BEFORE INSERT ON `peminjaman` FOR EACH ROW UPDATE `kelola_bahan`, `kelola_alat`
 SET `kelola_bahan`.`stock` = `kelola_bahan`.`stock` - 1,
 `kelola_alat`.`stok` = `kelola_alat`.`stok` - 1
 WHERE `kelola_bahan`.`id_nama_bahan` = NEW.nama_bahan
+=======
+CREATE TRIGGER `update_peminjaman` BEFORE INSERT ON `peminjaman` FOR EACH ROW UPDATE `kelola_bahan`, `kelola_alat`
+SET `kelola_bahan`.`stock` = `kelola_bahan`.`stock` - 1,
+`kelola_alat`.`stok` = `kelola_alat`.`stok` - 1
+WHERE `kelola_bahan`.`id_nama_bahan` = NEW.nama_bahan
+>>>>>>> 9ce1c66a8f246f56736af96e4c9927e1f0abcc10
 AND `kelola_alat`.`id_nama_alat` = NEW.nama_alat
 $$
 DELIMITER ;

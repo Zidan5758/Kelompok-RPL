@@ -165,6 +165,7 @@ class kelola_alat extends CI_Controller {
 	
 	public function cetak()
 	{
+<<<<<<< HEAD
 		$this->load->library("excel");
 		$object = new PHPExcel();
 		$object->setActiveSheetIndex(0);
@@ -219,5 +220,11 @@ class kelola_alat extends CI_Controller {
 		header('Content-Type: application/vnd.ms-excel');
 		header('Content-Disposition: attachment;filename="Kelola Alat.xlsx"');
 		$object_writer->save('php://output');
+=======
+		$this->fungsi->check_previleges('kelola_alat');
+		$data['kelola_alat'] = $this->m_kelola_alat->join();
+		$data['data_peminjaman'] = $this->m_kelola_alat->get_peminjaman();
+		$this->load->view('kelola/kelola_alat/v_cetak_kelola_alat',$data);
+>>>>>>> 9ce1c66a8f246f56736af96e4c9927e1f0abcc10
 	}
 }

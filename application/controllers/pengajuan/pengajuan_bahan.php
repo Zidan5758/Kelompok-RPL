@@ -128,6 +128,7 @@ class Pengajuan_bahan extends CI_Controller {
 	
 	public function cetak()
 	{
+<<<<<<< HEAD
 		$this->load->library("excel");
 		$object = new PHPExcel();
 		$object->setActiveSheetIndex(0);
@@ -163,6 +164,10 @@ class Pengajuan_bahan extends CI_Controller {
 		header('Content-Type: application/vnd.ms-excel');
 		header('Content-Disposition: attachment;filename="Pengajuan Bahan.xlsx"');
 		$object_writer->save('php://output');
+=======
+		$data['pengajuan_bahan'] = $this->m_pengajuan_bahan->hitung()->result();
+		$this->load->view('pengajuan/pengajuan_bahan/cetak_pengajuan_bahan', $data);
+>>>>>>> 9ce1c66a8f246f56736af96e4c9927e1f0abcc10
 	}
 
 }

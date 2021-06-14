@@ -145,6 +145,7 @@ class periode_pengajuan extends CI_Controller {
 	
 	public function cetak()
 	{
+<<<<<<< HEAD
 		$this->load->library("excel");
 		$object = new PHPExcel();
 		$object->setActiveSheetIndex(0);
@@ -181,6 +182,11 @@ class periode_pengajuan extends CI_Controller {
 		header('Content-Type: application/vnd.ms-excel');
 		header('Content-Disposition: attachment;filename="Periode Pengajuan.xlsx"');
 		$object_writer->save('php://output');
+=======
+		$this->fungsi->check_previleges('periode_pengajuan');
+		$data['periode_pengajuan'] = $this->m_periode_pengajuan->tampil();
+		$this->load->view('pengajuan/periode_pengajuan/v_cetak_periode_pengajuan',$data);
+>>>>>>> 9ce1c66a8f246f56736af96e4c9927e1f0abcc10
 	}
 
 }

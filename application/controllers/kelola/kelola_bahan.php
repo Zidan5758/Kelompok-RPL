@@ -159,6 +159,7 @@ class Kelola_bahan extends CI_Controller {
 	
 	public function cetak()
     {
+<<<<<<< HEAD
 		$this->load->library("excel");
 		$object = new PHPExcel();
 		$object->setActiveSheetIndex(0);
@@ -218,4 +219,12 @@ class Kelola_bahan extends CI_Controller {
 		
 		print_r($data['kelola_bahan']);
 	}
+=======
+        $this->fungsi->check_previleges('kelola_bahan');
+		$data['kelola_bahan'] = $this->m_kelola_bahan->getData();
+		$data['data_peminjaman'] = $this->m_kelola_bahan->get_peminjaman();
+		$data['data_hapus'] = $this->m_kelola_bahan->get_hapus();
+        $this->load->view('kelola/kelola_bahan/cetak_kelola_bahan', $data);
+    }
+>>>>>>> 9ce1c66a8f246f56736af96e4c9927e1f0abcc10
 }

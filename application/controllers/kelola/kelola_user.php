@@ -85,6 +85,7 @@ class kelola_user extends CI_Controller {
 		}
 		else
 		{
+<<<<<<< HEAD
 			$pass_en  = $this->db->query("SELECT PASSWORD('".$this->input->post('password')."') as pass")->row()->pass;
 			$datapost = array(
 			'nama'     => $this->input->post('nama'), 
@@ -164,6 +165,8 @@ class kelola_user extends CI_Controller {
 		}
 		else
 		{
+=======
+>>>>>>> 9ce1c66a8f246f56736af96e4c9927e1f0abcc10
 
 			$upload_folder = get_upload_folder('./files/');
 

@@ -27,8 +27,11 @@ class Pengajuan_alat extends CI_Controller {
 		echo $this->fungsi->parse_modal($header,$subheader,$content,$buttons,"");
 		if($param=='base'){
 			$this->fungsi->run_js('load_silent("pengajuan/pengajuan_alat/show_addForm/","#divsubcontent")');	
+<<<<<<< HEAD
 		}else if ($param == 'import') {
 			$this->fungsi->run_js('load_silent("pengajuan/pengajuan_alat/show_importForm/","#divsubcontent")');
+=======
+>>>>>>> 9ce1c66a8f246f56736af96e4c9927e1f0abcc10
 		}else{
 			$base_kom=$this->uri->segment(5);
 			$this->fungsi->run_js('load_silent("pengajuan/pengajuan_alat/show_editForm/'.$base_kom.'","#divsubcontent")');	
@@ -130,6 +133,7 @@ class Pengajuan_alat extends CI_Controller {
 	
 	public function cetak()
 	{
+<<<<<<< HEAD
 		$this->load->library("excel");
 		$object = new PHPExcel();
 		$object->setActiveSheetIndex(0);
@@ -229,5 +233,9 @@ class Pengajuan_alat extends CI_Controller {
 			$data = $this->upload->data();
 			$this->upload_from_excel($data['full_path']);
 		}
+=======
+		$data['pengajuan_alat'] = $this->m_pengajuan_alat->hitung()->result();
+		$this->load->view('pengajuan/pengajuan_alat/v_cetak_pengajuan_alat', $data);
+>>>>>>> 9ce1c66a8f246f56736af96e4c9927e1f0abcc10
 	}
 }
